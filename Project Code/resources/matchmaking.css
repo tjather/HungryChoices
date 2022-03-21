@@ -1,0 +1,105 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.card-container  {
+  width: 100vw;
+  height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.loaded.card-container {
+  opacity: 1;
+}
+
+.cards {
+  flex-grow: 0.7;
+  padding-top: 40px;
+  padding-top: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1;
+}
+
+.food-card {
+  display: inline-block;
+  width: 90vw;
+  max-width: 400px;
+  /* height: 50vh; */
+  background: linear-gradient(white, rgb(255, 201, 201));
+  padding-bottom: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: absolute;
+  will-change: transform;
+  transition: all 0.3s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
+.moving.food-card {
+  transition: none;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
+
+.food-card img {
+  padding-top:10px;
+  max-width: 100%;
+  pointer-events: none;
+}
+
+.food-card h3 {
+  margin-top: 32px;
+  font-size: 32px;
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+.food-card p {
+  margin-top: 24px;
+  font-size: 20px;
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+.card-buttons {
+  flex: 0 0 100px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.card-buttons button {
+  border-radius: 50%;
+  line-height: 60px;
+  width: 60px;
+  border: 0;
+  background: #FFFFFF;
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.card-buttons button:focus {
+  outline: 0;
+}
+
+.card-buttons i {
+  font-size: 32px;
+  vertical-align: middle;
+}

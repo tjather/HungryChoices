@@ -1,0 +1,178 @@
+body.home {
+    height: 100vh;
+    background-image: linear-gradient(#f9e4d4, rgba(0, 0, 0, 0.5)),
+        url("https://images.unsplash.com/photo-1592966991098-d057fe53ef01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHw0NDY2NDA2fHx8fHx8fDE2NDYwMjM4NzA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080");
+    background-size: cover;
+    background-position: center;
+    /* height: 100%; */
+    overflow: hidden;
+}
+
+body.matchmaking{
+    background-color: #f9e4d4;
+}
+
+.main-container {
+    max-width: 50vw;
+}
+
+
+.navbar-custom {
+    background-color: #f9e4d4;
+}
+
+.nav-link {
+    border-bottom: 0.25rem solid transparent;
+}
+
+.nav-link:hover {
+    border-bottom-color: #555555;
+}
+
+.btn-secondary, .btn-secondary:hover {
+
+    font-weight: bold;
+    /* Update the button color */
+    /* color: #f9e4d4; 
+    background-color: rgb(0, 0, 0); */
+}
+
+
+/* Attempt at aligning the options in the center of the navbar*/
+/* .button-options { 
+	display: flex;
+flex-direction: row;
+align-items: center;
+padding: 18px;
+
+position: relative;
+width: 45px;
+height: 45px;
+right: 165px;
+top: calc(50% - 45px/2);
+
+}
+
+.nav-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    
+    position: relative;
+    width: 445px;
+    height: 50px;
+    left: calc(50% - 436px/2);
+    top: calc(50% - 45px/2);
+} */
+
+/*  --------- Profile Page Style -------- */
+
+.profile-cont {
+    padding: 20px 15%;
+}
+
+.banner {
+    color: transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.banner input {
+    display: none;
+}
+
+.banner img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    max-height: 200px;
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
+    border-radius: 100px;
+    z-index: 0;
+}
+
+.banner .-label {
+    cursor: pointer;
+    max-height: 100px;
+    width: 100%;
+}
+
+.banner:hover .-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    color: #fafafa;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 100px;
+    margin-bottom: 0;
+}
+
+.banner span {
+    display: inline-flex;
+    padding: 0.2em;
+    height: 2em;
+}
+
+.prof-details {
+    background: #f9e4d4;
+    padding: 2vw;
+    border-radius: 4px;
+    /* display: flex; */
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.pfp {
+    color: transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.pfp input {
+    display: none;
+}
+
+.pfp img {
+    position: absolute;
+    object-fit: cover;
+    width: 165px;
+    height: 165px;
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
+    border-radius: 100px;
+    z-index: 0;
+}
+
+.pfp .-label {
+    cursor: pointer;
+    height: 165px;
+    width: 165px;
+}
+
+.pfp:hover .-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    color: #fafafa;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 100px;
+    margin-bottom: 0;
+}
+
+.pfp span {
+    display: inline-flex;
+    padding: 0.2em;
+    height: 2em;
+}
