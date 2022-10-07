@@ -1,149 +1,18 @@
-<!DOCTYPE html>
-<html>
+<%- include('../partials/header')%>
 
-<head>
-    <title>HungryChoices</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
-    <link href="../../resources/site_style.css" rel="stylesheet">
-    <link href="../../resources/debug_style.css" rel="stylesheet">
-</head>
 
-<!-- Begin Riley's Code -->
-<%
-	//Creates a single food card
-	function createFoodCard(dish) {
-		let card;
-
-		card += "<div class=\"rounded foodCard\" style=\"overflow: hidden; height: 15rem; width: 15rem;\">";
-		card += "<img src=" + dish.img_src + " alt=" + dish.name;
-
-		if (dish.img_type == "Square") {
-			card += " style=\"z-index: 0; display: block; max-height: 110%;\"";
-		} else if (dish.img_type == "Landscape") {
-			card += " style=\"z-index: 0; display: block; position: relative; left: -50%; max-height: 110%;\"";
-		} else if (dish.img_type == "Portrait") {
-			card += " style=\"z-index: 0; display: block; position: relative; top: -50%; max-width: 110%;\"";
-		}
-
-		card += "/>";
-		card += "<div class=\"rounded-bottom cardInfo\" style=\"z-index: 1; display: none; position: absolute; top: 70%; height: 30%; width: 15rem; text-align: center; background-color: #f9e4d4bb;\">";
-		card += "<h5 style=\"font-size: 16px;\">" + dish.name + "</h5>";
-		card += "<img class=\"heart\" src=\"../../resources/img/HeartEmpty.png\" alt=\"Heart\" style=\"z-index: 2; width: 40px;\"/>";
-		card += "</div></div>";
-
-		return card;
-	}
-
-	//Creates a flexible container for one card
-	function createCardColumn(dish) {
-		let col;
-
-		col += "<div class=\"col-xl-2 d-flex\">";
-		col += createFoodCard(dish);
-		col += "</div>";
-
-		return col;
-	}
-
-	//Creates a row of 6 cards			
-	function createCardRow(dishes) {
-		let row;
-
-		row += "<div class=\"row justify-content-start card-deck\">";
-				
-		for (var i = 0; i < dishes.length; i++) {
-			row += createCardColumn(dishes[i]);
-		}
-				
-		row += "</div><br/>";
-
-		return row;
-	}
-%>
-<!-- End Riley's Code -->
-
-<body class="d-flex">
+<body class="d-flex matchmaking">
     <div class="d-flex w-100 h-100 mx-auto flex-column">
-        <header class="mb-auto">
-            <nav class="navbar navbar-expand-lg navbar-light py-3 navbar-custom">
-                <a class="navbar-brand" href="homepage">
-                    <!-- Add in the acutal logo-->
-                    <img class="rounded-circle" src="../resources/img/hungrychoices_logo.jpg" alt="" width="20"
-                        height="20" />
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="homepage">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="matchmaking">Matchmaking</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="discover">Discover</a>
-                        </li>
-                        <li class="nav-item p1">
-                            <a class="nav-link" href="profile">Profile</a>
-                        </li>
-                    </ul>
-                    <div class="form-inline my-2 my-lg-0 p-1">
-                        <button href="#myModal" class="btn btn-outline-dark my-2 my-sm-0" data-toggle="modal"
-                            onclick="openModal()">
-                            Log In
-                        </button>
-                    </div>
-                </div>
-
-                <div id="myModal" class="modal fade">
-                    <div class="modal-dialog modal-login">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Log In</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                    &times;
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <input id="username" type="text" class="form-control" name="username"
-                                        placeholder="Username" required="required" />
-                                </div>
-
-                                <div class="form-group">
-                                    <input id="psw" type="password" class="form-control" name="password"
-                                        placeholder="Password" required="required" />
-                                </div>
-
-                                <div class="form-group">
-                                    <button id="my_submit_button" class="btn btn-secondary" disabled>
-                                        Log In
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="container">
-
-                                <h3>Not registered?</h3>
-                                <a href="register">Create an Account</a>
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        <%- include('../partials/menu')%>
 		
-		<!-- Begin Riley's Code -->
-		<main style="background: linear-gradient(#f9e4d4, rgba(255, 255, 255, 0.5))">
+		<!-- Beginning of Riley's Code -->
+		<main>
 			<div class="container-fluid center-block">
 				<br/>
   				<div class="row">
 					<div class = "col-xl-3"></div>
 					<div class = "col-xl-6">
-						<h1 class="display-1 text-center"><strong><u>Discover</u></strong></h1>
+						<h5 class="display-1 text-center">Discover</h5>
 					</div>
 					<div class = "col-xl-3"></div>
 				</div>
@@ -151,16 +20,18 @@
 			</div>
 			<div class="container-fluid center-block" id="cardFrame">
 				<br/>
-				<%- createCardRow(data); %>
 			</div>
 		</main>
 
-		<!-- End Riley's Code -->
+		<!-- End of Riley's Code -->
     </div>
 
 	
-	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+	<script src="../../resources/js/discover.js"></script>
 </body>
 
 </html>

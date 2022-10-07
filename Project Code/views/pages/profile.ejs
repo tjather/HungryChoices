@@ -1,112 +1,41 @@
-<!DOCTYPE html>
-<html>
+<%- include('../partials/header')%>
 
-<head>
-    <title>HungryChoices</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
-    <link href="../../resources/site_style.css" rel="stylesheet">
-</head>
-
-<body class="d-flex">
+<body class="d-flex profile">
     <div class="d-flex w-100 h-100 mx-auto flex-column">
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light py-3 navbar-custom">
-                <a class="navbar-brand" href="homepage">
-                    <!-- Add in the acutal logo-->
-                    <img class="rounded-circle" src="../resources/img/hungrychoices_logo.jpg" alt="" width="20"
-                        height="20" />
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="homepage">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="matchmaking">Matchmaking</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="discover">Discover</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="profile">Profile</a>
-                        </li>
-                    </ul>
-                    <div class="form-inline my-2 my-lg-0 p-1">
-                        <button href="#myModal" class="btn btn-outline-dark my-2 my-sm-0" data-toggle="modal"
-                            onclick="openModal()">
-                            Log In
-                        </button>
-                    </div>
-                </div>
-
-                <div id="myModal" class="modal fade">
-                    <div class="modal-dialog modal-login">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Log In</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                    &times;
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <input id="username" type="text" class="form-control" name="username"
-                                        placeholder="Username" required="required" />
-                                </div>
-
-                                <div class="form-group">
-                                    <input id="psw" type="password" class="form-control" name="password"
-                                        placeholder="Password" required="required" />
-                                </div>
-
-                                <div class="form-group">
-                                    <button id="my_submit_button" class="btn btn-secondary" disabled>
-                                        Log In
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="container">
-
-                                <h3>Not registered?</h3>
-                                <a href="register">Create an Account</a>
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        <%- include('../partials/menu')%>
 
         <main class="container px-3 text-center main-container">
             <br>
-            <div>
-                <!-- <div class="banner">
-                    <label class="-label" for="fileB">
-                        <span>Change Banner</span>
+
+<!-- FAILED CHANGABLE BANNER BELOW -->
+
+            <!-- <div class="banner">
+                <img src="../../resources/img/bannerSample.png" id="banner-output" />
+                <label class="-label" for="fileB">
+                    <span>Change Banner</span>
+                </label>
+                <input id="fileB" type="file" onchange="loadFileB(event)" />
+            </div> -->
+            <div class="prof-details">
+                <!-- Changeable pfp -->
+                <!-- TODO: Implement image storage for pfp to database. -->
+                <div class="pfp">
+                    <img src="../../resources/img/pfpSample.jpg" id="PFPoutput" />
+                    <label class="-label" for="filePFP">
+                        <span>Change Image</span>
                     </label>
-                    <input id="fileB" type="file" onchange="loadFileB(event)" />
-                    <img src="../../resources/img/bannerSample.png" id="banner-output"/>
-                </div> -->
-                <div class="prof-details">
-                    <div class="pfp">
-                        <label class="-label" for="filePFP">
-                            <span>Change Image</span>
-                        </label>
-                        <input id="filePFP" type="file" onchange="loadFilePFP(event)" />
-                        <img src="../../resources/img/pfpSample.jpg" id="PFPoutput"/>
-                    </div>
-                    <h3>Jack Fakename</h3>
+                    <input id="filePFP" type="file" onchange="loadFilePFP(event)" />
+                </div>
+                <!-- TODO: Implement username pull from database. -->
+                <h3>Welcome to Your Profile!</h3>
+                <!-- Stats Chart -->
+                <!-- TODO: Implement integration with discover page. -->
+                <div>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+                    <canvas id="pieChart"></canvas>
                 </div>
             </div>
-            <div>
-                <canvas id="pieChart" max-width="100px" max-height="100px"></canvas>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
-            </div>
+
         </main>
 
         <footer class="text-center p-2 mt-auto">
@@ -116,6 +45,7 @@
         </footer>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="../../resources/js/login.js"></script>
     <script src="../../resources/js/profile.js"></script>
     <script src="../../resources/js/chart.js/dist/chart.js"></script>
