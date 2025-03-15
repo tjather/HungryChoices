@@ -1,45 +1,65 @@
 # HungryChoices
 
-HungryChoices aims to match users with dishes based on food preferences so that they never have to worry about finding what to eat. In the style of a dating app, this website takes a user's profile and discovers dishes that are a close fit. If users find themselves unable to choose what to cook or eat, they can simply log into the website and start looking for matches based upon a number of criteria, such as region, dietary restrictions, or key ingredients. However, before users are allowed to use such search features, they must create an account which is backed by a database to hold their information. Thus, when they log out of their account, their old preferences will be saved. Next time this user logs back in, they can then continuee matching without having to reselect all of their preferences again. 
+HungryChoices is a platform to match users with dishes based on food preferences so that they never have to worry about finding what to eat. This **full-stack food discovery web application** is designed to help users find dishes based on their **food preferences, dietary restrictions, and key ingredients**. In the style of a dating app, this website takes a user's profile and discovers dishes that are a close fit. If users find themselves unable to choose what to cook or eat, they can simply log into the website and start looking for matches or browse all options. When users find themselves hungry, yet unsure what to eat, HungryChoices is the number one stop for them.
 
-More than just a dating web application, users can also look through options based upon filters and browse all the options that are available to them, provided by a food API. This allows users to also discover food options on their own without having to match with the dish. If neither of these options proves sufficient for determining what to eat, the website can pick a choice for the user. When the user eventually finds a dish they are fond of, they can save the dish by liking it and it will be saved to their account so they can quickly access the dish at a later time. When users find themselves hungry, yet unsure what to eat, HungryChoices is the number one stop for them.
+The application utilizes **Node.js, Express.js, PostgreSQL, and EJS templating**, with **Docker-based deployment** for scalability and maintainability. Users can create an account to store their preferences and history, allowing them to seamlessly continue their food discovery journey across sessions.
+
+## Features
+- **Food Matching System** – Users can "like" or "dislike" dishes based on preferences.
+- **Filter & Browse** – Discover food options using filters (e.g., cuisine, dietary needs).
+- **Personalized Profiles** – Save liked dishes and revisit them anytime.
+- **User Authentication** – Secure login/logout using **Passport.js** and **bcrypt password hashing**.
+- **Database-Backed Storage** – Uses **PostgreSQL** to persist user profiles, preferences, and matches.
+- **Responsive & Interactive UI** – Built with **EJS, Bootstrap, and JavaScript**.
+- **Containerized Deployment** – Uses **Docker & Docker Compose** for easy setup and hosting.
 
 ## Project Structure
-### Project Overview
-Project demo and use case diagram are stored here.
+### **Backend**
+- **`server.js`** – The main **Node.js server**, managing routes and authentication.
+- **`db/`** – PostgreSQL database setup and queries.
+- **`init_data/`** – SQL scripts for initial database setup.
 
-### Project Code
-All of the project's code is stored here.
+### **Frontend**
+- **`resources/`** – Contains **CSS, JavaScript, and images** for styling and interactivity.
+- **`views/pages/`** – Houses **EJS files** for dynamic content rendering.
+- **`views/partials/`** – Reusable UI components such as headers, footers, and navigation.
 
-#### db
-The Postgres database setup files for deployment to Heroku are stored here.
+### **Deployment & Testing**
+- **`Dockerfile` & `docker-compose.yml`** – Configuration files for **containerized deployment**.
+- **`server.spec.js`** – Mocha & Chai test cases for API and database validation.
+- **`.env`** – Manages environment variables for deployment.
 
-#### heroku
-The Heroku CLI files needed for deployment are stored here.
+## **System Architecture**
+### **Backend**
+- **PostgreSQL** stores user data, preferences, and food choices.
+- **Node.js (Express.js)** handles API endpoints and database interactions.
+- **EJS** dynamically renders web pages based on user data.
+- **Passport.js** manages authentication, with **bcrypt** for password hashing.
 
-#### init_data
-When starting the Postgres database, the tables and data are created as needed from the files in this folder.
+### **Frontend**
+- **EJS Templates** create dynamic web pages.
+- **Bootstrap & JavaScript** provide a clean, responsive UI.
+- **AJAX Calls** allow seamless data retrieval from the database.
 
-#### resources
-The page resources such as the styling, javascript, and images are located here.
+## **How to Run the Project**
+### **Prerequisites**
+- Install **Docker & Docker Compose** ([Docker Installation](https://docs.docker.com/get-docker/)).
+- Clone the repository:
+  ```sh
+  git clone <repo-url>
+  cd hungrychoices
+  ```
 
-#### sessions
-User sessions are stored here.
+### **Run the Application Locally**
+1. Start the application using Docker:
+   ```sh
+   docker-compose up --build
+   ```
+2. Open **http://localhost:3000** in your browser.
+3. Register a new account and start discovering food options!
 
-#### test
-The test cases for our project are located here.
-
-#### views
-The pages and partial ejs files are stored here.
-
-#### Dockerfile and docker-compose.yml
-These are the docker config files for the containerization and running of the Docker images of our project.
-
-#### server.js
-This is the Node.js server logic.
-  
-## Proposed Architure
-On the back end, we will be using PostgreSQL as our database to store things like user profiles, preferences, matches, and liked foods. On the front end, our website will be made with HTML and CSS with Bootstrap to help stylize it. We will use Node.js to create the back-end framework of our website, including the communication between the front and back-end database. It will also help with the website’s functions, like swiping left or right on different foods to create dynamic page content.
-
-## How to Run The Project
-In order to run the project, first clone the repository. Then, in your preferred terminal, navigate into the "Project Code" folder and run `docker-compose up` to start the project locally.
+### **Run Tests**
+To execute unit and integration tests, run:
+```sh
+npm test
+```
